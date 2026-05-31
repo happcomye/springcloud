@@ -1,0 +1,30 @@
+server:
+  port: 9011
+
+spring:
+  application:
+    name: techmall-account
+  datasource:
+    url: jdbc:mysql://192.168.30.129:3306/techmall_db?characterEncoding=UTF8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    database: mysql
+
+eureka:
+  client:
+    register-with-eureka: true # 声明自己是客户端，需要向 Eureka 注册
+    fetch-registry: true       # 需要从 Eureka 获取其他服务的信息
+    service-url:
+      defaultZone: http://localhost:8888/eureka # Eureka Server 的地址
+  instance:
+    prefer-ip-address: true    # 注册时使用 IP 地址，这在 VS Code 配合虚拟机环境时非常重要
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
